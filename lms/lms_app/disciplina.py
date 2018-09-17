@@ -1,6 +1,4 @@
 from django.db import models
-
-
 class Disciplina(models.Model):
     def __str__(self):
         return self.ementa + " "+self.nome
