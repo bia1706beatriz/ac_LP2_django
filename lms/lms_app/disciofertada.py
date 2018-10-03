@@ -1,4 +1,6 @@
 from django.db import models
+from lms_app.professor import *
+from lms_app.disciplina import *
 class DisciplinaOfertada(models.Model):
     def __str__(self):
         return self.curso
@@ -7,9 +9,16 @@ class DisciplinaOfertada(models.Model):
         if self.curso not in ['ADS', 'SI', 'BD']:
             raise Exception('')
         if (len(DisciplinaOfertada.objects.filter(ano=self.ano ,semestre=self.semestre, turma=self.turma, curso=self.curso , disciplina=self.disciplina)) >=1):
+            raise Exception('')
+            
+        if (len(Professor.objects.filter(id = self.professor)) <1):
+            raise Exception('')
+
+        if (len(Disciplina.objects.filter(id=self.disciplina)) <1):
             raise Exception("")
-        if self.professor != self.disciplina:
-            raise Exception("")
+
+        
+       
 
         super(DisciplinaOfertada,self).save()
 

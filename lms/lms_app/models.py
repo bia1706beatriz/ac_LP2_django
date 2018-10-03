@@ -2,6 +2,7 @@ from django.db import models
 from lms_app.professor import *
 from lms_app.disciplina import *
 from lms_app.disciofertada import *
+from lms_app.aluno import *
 
 '''
 class Professor(models.Model):
